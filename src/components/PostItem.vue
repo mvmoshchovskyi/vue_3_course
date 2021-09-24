@@ -1,17 +1,12 @@
 <template>
   <div class="post">
     <div>
-      <div>
-         <strong>id:</strong>{{ post.id }}
-      </div>
-      <div>
-      <strong>  title: </strong>{{ post.title }}
-      </div>
-      <div>
-      <strong>  description: </strong>{{ post.body }}
-      </div>
+      <div><strong>id:</strong>{{ post.id }}</div>
+      <div><strong> title: </strong>{{ post.title }}</div>
+      <div><strong> description: </strong>{{ post.body }}</div>
     </div>
-    <div class="post__btn">
+    <div class="post__btns">
+      <my-button @click="$router.push(`/posts/${post.id }`)">open</my-button>
       <my-button @click="$emit('remove', post)">remove</my-button>
     </div>
   </div>
@@ -36,5 +31,8 @@ export default {
   margin-top: 15px;
   align-items: center;
   justify-content: space-between;
+}
+.post__btns {
+  display: flex;
 }
 </style>
