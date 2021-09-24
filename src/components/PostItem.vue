@@ -2,13 +2,13 @@
   <div class="post">
     <div>
       <div>
-        id: <strong>{{ post.id }}</strong>
+         <strong>id:</strong>{{ post.id }}
       </div>
       <div>
-        title: <strong>{{ post.title }}</strong>
+      <strong>  title: </strong>{{ post.title }}
       </div>
       <div>
-        body: <strong>{{ post.body }}</strong>
+      <strong>  description: </strong>{{ post.body }}
       </div>
     </div>
     <div class="post__btn">
