@@ -1,7 +1,7 @@
 <template>
   <div >
     <h2>page with posts</h2>
-    <my-input v-model="searchQuery"></my-input>
+    <my-input v-model="searchQuery" v-focus></my-input>
     <div class="btns__wrapper">
       <my-button style="align-self: flex-start" @click="showDialog">
         create post</my-button
@@ -18,7 +18,8 @@
     />
 
     <div v-else>post loading ...</div>
-    <div ref="observer" class="observer"></div>
+    <div v-intersection='loadMorePosts' class="observer"></div>
+    <!-- <div ref="observer" class="observer"></div> -->
     <!-- <div class="pagination__wraper">
       <div
         class="page"
@@ -121,18 +122,18 @@ export default {
   mounted() {
     this.fetchPosts();
 
-    const options = {
-      // root: document.querySelector("#scrollArea"),
-      rootMargin: "0px",
-      threshold: 1.0,
-    };
-    const callback = (entries, observer) => {
-      if (entries[0].isIntersecting && this.page < this.totalPages) {
-        this.loadMorePosts();
-      }
-    };
-    const observer = new IntersectionObserver(callback, options);
-    observer.observe(this.$refs.observer);
+    // const options = {
+    //   // root: document.querySelector("#scrollArea"),
+    //   rootMargin: "0px",
+    //   threshold: 1.0,
+    // };
+    // const callback = (entries, observer) => {
+    //   if (entries[0].isIntersecting && this.page < this.totalPages) {
+    //     this.loadMorePosts();
+    //   }
+    // };
+    // const observer = new IntersectionObserver(callback, options);
+    // observer.observe(this.$refs.observer);
   },
 
   computed: {
